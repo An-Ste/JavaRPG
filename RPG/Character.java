@@ -1,43 +1,46 @@
-public class Weapon {
-    String w_name;
-}
+package RPG;
 
 public class Character {
-    private String name;
-    private int hp;
-    private int power;
-    private int defense;
-    private int speed;
+    String name;
+    int hp;
+    int power;
+    int defense;
+    int speed;
+    int item_num;
 
-    public static void attack() {
+    
+	
+	public Character attack(Character chara) {
+//		Ally ally = new Ally();
+		int damage = this.power - chara.defense;
+		chara.hp -= damage;
+    	System.out.println(damage + " のダメージ！");
+    	System.out.println(chara.name + " のHP：" + chara.hp);
+		return chara;
+	}
+    
+//	public int enemy_attack(int hp, int defense) {
+//		Enemy enemy = new Enemy();
+//		int damage = enemy.power - defense;
+//		hp -= damage;
+//    	System.out.println(damage + " のダメージ！");
+//    	System.out.println(name + " のHP：" + hp);
+//		return hp;
+//	}
 
+//    public void defense() {
+//
+//    }
+
+    public void use_potion() {
+    	item_num -= 1;
+    	Item item = new Item();
+    	hp = item.potion(hp);
     }
 
-    public static void defense() {
-
-    }
-
-    public static void use_item() {
-
-    }
-
-    public static void stay() {
-
-    }
+//    public void stay() {
+//
+//    }
+    
 }
 
-public class Ally extends Character {
-    this.name = "ああああ";
-    this.hp = 20;
-    this.power = 10;
-    this.defense = 6;
-    this.speed = 8;
-}
-
-public class Enemy extends Character {
-    this.name = "敵だよ！";
-    this.hp = 23;
-    this.power = 8;
-    this.defense = 9;
-    this.speed = 5;
-}
