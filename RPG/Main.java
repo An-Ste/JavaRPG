@@ -1,12 +1,11 @@
 package RPG;
-// 過去のデータ
 
 public class Main {
 	public static void main (String args[]) {
 		System.out.println("RPG作成中");
 		
-		Ally ally = new Ally();
-		Enemy enemy = new Enemy();
+		Character ally = new Ally();
+		Character enemy = new Enemy();
 		
 		// ポーションの処理
 		while (ally.item_num >= 1 || enemy.item_num >= 1) {
@@ -24,11 +23,11 @@ public class Main {
 		}
 		
 		// 攻撃処理
-//		while (ally.hp < 0 && enemy.hp < 0) {
-//			ally_attack();
-//			enemy_attack();
-//		}
-//		enemy = ally.attack(enemy);
+//		Character ally = new Character();
+//		Character enemy = new Character();
+		
+		enemy = ally.attack(enemy);
+		ally = enemy.attack(ally);
 
 
 	}
