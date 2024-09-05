@@ -2,12 +2,12 @@ package RPG;
 
 public class Main {
 	public static void main (String args[]) {
-		System.out.println("RPG作成中");
+		System.out.println("Enemy が現れた！");
 		
-		Character ally = new Ally();
-		Character enemy = new Enemy();
+		Ally ally = new Ally();
+		Enemy enemy = new Enemy();
 		
-		// ポーションの処理
+		// ポーションを使う処理
 		while (ally.item_num >= 1 || enemy.item_num >= 1) {
 			if (0 < ally.item_num) {
 				ally.use_potion();
@@ -22,12 +22,18 @@ public class Main {
 			}
 		}
 		
-		// 攻撃処理
-//		Character ally = new Character();
-//		Character enemy = new Character();
+		// 攻撃の為の前処理
+		Character ally_attack  = new Character();
+		Character enemy_attack  = new Character();
 		
-		enemy = ally.attack(enemy);
-		ally = enemy.attack(ally);
+		
+		// RPG のターン構造
+		while (ally.hp >= 0 && enemy.hp >= 0) {
+			
+			// 攻撃する処理
+			ally_attack = enemy.attack(ally);
+			enemy_attack = ally.attack(enemy);
+		}
 
 
 	}

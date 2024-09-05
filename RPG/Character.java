@@ -14,6 +14,7 @@ public class Character {
 	public Character attack(Character chara) {
 		int damage = this.power - chara.defense;
 		chara.hp -= damage;
+		System.out.println(this.name + " の攻撃！");
     	System.out.println(damage + " のダメージ！");
     	System.out.println(chara.name + " のHP：" + chara.hp);
 		return chara;
