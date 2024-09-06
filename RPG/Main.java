@@ -33,7 +33,9 @@ public class Main {
 					if (0 < ally.item_num) {
 						ally.use_potion();
 					} else {
-						System.out.println(ally.name + " のポーションは無くなりました！使えませんね！");
+						System.out.println(ally.name + " のポーションは無くなりました！");
+						System.out.println("そのため、攻撃を行います！");
+						ally_attack = ally.attack(enemy);
 					}
 					break;
 			}
